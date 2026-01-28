@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>관리자 로그인 - 올투윈마케팅</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--bg-color);
+        }
+
+        .admin-login-container {
+            width: 100%;
+            max-width: 400px;
+            padding: 40px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .admin-login-container h1 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+        }
+
+        .login-form input {
+            margin-bottom: 15px;
+        }
+
+        .error-msg {
+            color: #ff6b6b;
+            font-size: 14px;
+            margin-top: 15px;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-login-container">
+        <h1>관리자 로그인</h1>
+        <form id="adminLoginForm" class="login-form">
+            <div class="form-group">
+                <input type="text" id="adminId" placeholder="아이디" required autocomplete="off">
+            </div>
+            <div class="form-group">
+                <input type="password" id="adminPw" placeholder="비밀번호" required>
+            </div>
+            <button type="submit" class="btn btn-primary submit-btn" style="margin-top: 10px;">로그인</button>
+            <p id="loginError" class="error-msg">로그인 정보를 다시 확인해주세요.</p>
+        </form>
+    </div>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>
