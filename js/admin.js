@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (inputId === ADMIN_ID && inputPw === ADMIN_PW) {
                 // Successful Login
                 sessionStorage.setItem('adminAuth', 'true');
-                window.location.href = 'admin_dashboard.html';
+                sessionStorage.setItem('loginSuccess', 'true');
+                window.location.href = 'index.html';
             } else {
                 // Failed Login
                 errorMsg.style.display = 'block';

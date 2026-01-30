@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인사이트 글 작성 - 올투윈마케팅</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Pretendard Font -->
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css" />
+    <!-- RemixIcon -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+    <style>
+        /* Editor Specific Styles */
+        body {
+            background-color: #f5f6f7;
+            /* Light background for editor like Naver */
+            color: #333;
+        }
+
+        .editor-header {
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        .editor-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .page-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .editor-layout {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: #fff;
+            border: 1px solid #ddd;
+            min-height: 800px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Thumbnail Section */
+        .thumbnail-section {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-label {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 10px;
+            display: block;
+            font-weight: 600;
+        }
+
+        .thumb-preview-box {
+            width: 320px;
+            height: 180px;
+            background: #f8f8f8;
+            border: 1px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .thumb-preview-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Title Input */
+        .title-input-section {
+            margin-bottom: 30px;
+        }
+
+        .title-input {
+            width: 100%;
+            font-size: 32px;
+            font-weight: bold;
+            border: none;
+            border-bottom: 2px solid #eee;
+            padding: 10px 0;
+            outline: none;
+            font-family: 'Pretendard', sans-serif;
+            color: #333;
+        }
+
+        .title-input::placeholder {
+            color: #ccc;
+        }
+
+        .title-input:focus {
+            border-bottom-color: #d4af37;
+            /* Gold accent */
+        }
+
+        /* Toolbar */
+        .toolbar {
+            position: sticky;
+            top: 70px;
+            /* Below header */
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            z-index: 90;
+            border-radius: 4px;
+        }
+
+        .toolbar-group {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+            padding-right: 15px;
+            border-right: 1px solid #eee;
+        }
+
+        .toolbar-group:last-child {
+            border-right: none;
+        }
+
+        .tool-btn {
+            background: none;
+            border: 1px solid transparent;
+            width: 32px;
+            height: 32px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 16px;
+        }
+
+        .tool-btn:hover {
+            background: #f0f0f0;
+        }
+
+        .tool-btn.active {
+            background: #e8e8e8;
+            color: #000;
+        }
+
+        .tool-select {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* Content Editor */
+        .content-editor {
+            min-height: 500px;
+            outline: none;
+            line-height: 1.8;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .content-editor img {
+            max-width: 100%;
+        }
+
+        /* Options Panel */
+        .options-panel {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .option-row {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        /* Custom Button Override for this page */
+        .btn-outline {
+            border: 1px solid #bbb;
+            background: #fff;
+            color: #333;
+        }
+
+        .btn-green {
+            background: #03C75A;
+            /* Naver Green-ish for Publish */
+            color: white;
+            border: none;
+        }
+
+        .btn-green:hover {
+            background: #02b150;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="editor-header">
+        <div class="container">
+            <h1 class="page-title">인사이트 글 작성</h1>
+            <div class="header-actions">
+                <button class="btn btn-sm btn-outline" id="btnTempSave">임시저장</button>
+                <button class="btn btn-sm btn-outline" id="btnPreview">미리보기</button>
+                <button class="btn btn-sm btn-green" id="btnPublish">발행</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="editor-layout">
+
+        <!-- Category & Options (Top for better flow or bottom as requested? "Right Panel or Bottom Panel". Let's put important ones top or bottom. User asked for 3-6 Post Options. I'll put them at the bottom) -->
+
+        <!-- Thumbnail -->
+        <div class="thumbnail-section">
+            <span class="section-label">썸네일</span>
+            <div class="thumb-preview-box" id="thumbPreviewBox">
+                <span class="text-gray-400">이미지 없음</span>
+                <img id="thumbImage" src="" style="display:none;">
+            </div>
+            <input type="file" id="thumbInput" accept="image/*" style="display:none;">
+            <button class="btn btn-sm btn-secondary" onclick="document.getElementById('thumbInput').click()">이미지
+                추가</button>
+        </div>
+
+        <!-- Title -->
+        <div class="title-input-section">
+            <span class="section-label">제목</span>
+            <input type="text" class="title-input" id="postTitle" placeholder="제목을 입력하세요">
+        </div>
+
+        <!-- Toolbar -->
+        <div class="toolbar" id="toolbar">
+            <div class="toolbar-group">
+                <select class="tool-select" id="fontFamily">
+                    <option value="Pretendard">Pretendard</option>
+                    <option value="serif">명조</option>
+                    <option value="sans-serif">고딕</option>
+                </select>
+                <select class="tool-select" id="fontSize">
+                    <option value="3">본문(16px)</option>
+                    <option value="1">작게</option>
+                    <option value="5">크게</option>
+                    <option value="7">아주 크게</option>
+                </select>
+            </div>
+            <div class="toolbar-group">
+                <button class="tool-btn" data-cmd="bold" title="굵게"><i class="ri-bold"></i></button>
+                <button class="tool-btn" data-cmd="italic" title="기울임"><i class="ri-italic"></i></button>
+                <button class="tool-btn" data-cmd="underline" title="밑줄"><i class="ri-underline"></i></button>
+                <button class="tool-btn" data-cmd="strikeThrough" title="취소선"><i class="ri-strikethrough"></i></button>
+            </div>
+            <div class="toolbar-group">
+                <div style="display:flex; flex-direction:column; align-items:center; margin-right:5px;">
+                    <label style="font-size:10px; color:#888;">글자색</label>
+                    <input type="color" id="foreColor" title="글자색" value="#000000"
+                        style="width:24px; height:24px; border:none; padding:0; cursor:pointer;">
+                </div>
+                <div style="display:flex; flex-direction:column; align-items:center;">
+                    <label style="font-size:10px; color:#888;">배경색</label>
+                    <input type="color" id="hiliteColor" title="배경색" value="#ffffff"
+                        style="width:24px; height:24px; border:none; padding:0; cursor:pointer;">
+                </div>
+            </div>
+            <div class="toolbar-group">
+                <button class="tool-btn" data-cmd="justifyLeft" title="왼쪽 정렬"><i class="ri-align-left"></i></button>
+                <button class="tool-btn" data-cmd="justifyCenter" title="가운데 정렬"><i
+                        class="ri-align-center"></i></button>
+                <button class="tool-btn" data-cmd="justifyRight" title="오른쪽 정렬"><i class="ri-align-right"></i></button>
+            </div>
+            <div class="toolbar-group">
+                <button class="tool-btn" onclick="document.getElementById('contentImgInput').click()" title="이미지 삽입"><i
+                        class="ri-image-add-line"></i></button>
+                <input type="file" id="contentImgInput" accept="image/*" style="display:none;">
+                <button class="tool-btn" data-cmd="insertHorizontalRule" title="구분선"><i
+                        class="ri-separator"></i></button>
+            </div>
+        </div>
+
+        <!-- Editor -->
+        <span class="section-label">내용</span>
+        <div class="content-editor" id="editor" contenteditable="true">
+            <p>내용을 입력하세요...</p>
+        </div>
+
+        <!-- Options -->
+        <div class="options-panel">
+            <div class="option-row">
+                <span class="section-label" style="width: 100px; margin:0;">카테고리</span>
+                <select class="tool-select" id="postCategory" style="min-width: 150px;">
+                    <option value="병원광고">병원광고</option>
+                    <option value="블로그/SEO">블로그/SEO</option>
+                    <option value="유튜브/영상">유튜브/영상</option>
+                    <option value="의료광고심의">의료광고심의</option>
+                    <option value="기타">기타</option>
+                </select>
+            </div>
+            <div class="option-row">
+                <span class="section-label" style="width: 100px; margin:0;">설정</span>
+                <label style="display:flex; align-items:center; gap:5px; margin-right: 20px;">
+                    <input type="checkbox" id="isPinned"> 공지(GNB) / 상단 고정
+                </label>
+
+                <span style="margin: 0 10px; color: #ddd;">|</span>
+
+                <label style="display:flex; align-items:center; gap:5px; margin-left: 10px;">
+                    <input type="radio" name="visibility" value="public" checked> 공개
+                </label>
+                <label style="display:flex; align-items:center; gap:5px; margin-left: 10px;">
+                    <input type="radio" name="visibility" value="private"> 비공개
+                </label>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Authentication Check
+        if (!sessionStorage.getItem('adminAuth')) {
+            alert('관리자 로그인이 필요합니다.');
+            window.location.href = 'admin_login.html';
+        }
+    </script>
+    <script src="js/insight_write.js"></script>
+</body>
+
+</html>

@@ -30,94 +30,174 @@
         </div>
     </header>
 
-    <!-- Contact Hero -->
-    <section class="contact-hero">
-        <div class="container">
-            <h1 class="contact-title">서로 상생하는 병원마케팅 파트너, <span class="text-gold">올투윈마케팅</span></h1>
-            <div class="contact-desc">
-                <p>올투윈마케팅은 단순히 가격을 비교하는 마케팅 대행사가 아닙니다.</p>
-                <p>병원의 상황을 이해하고, 함께 고민하며 장기적으로 성장하는 파트너를 지향합니다.</p>
-                <p class="mt-20">문의 내용을 구체적으로 남겨주실수록 우리 병원에 맞는 마케팅 구조를 더욱 정교하게 설계할 수 있습니다.<br>
-                    잠깐의 수고가 병원의 마케팅 방향과 미래를 바꾸는 시작이 될 수 있습니다.</p>
+    <!-- Contact Page Main Wrapper -->
+    <main class="contact-page-bg">
+        <!-- Contact Hero -->
+        <section class="contact-hero">
+            <div class="container">
+                <h1 class="contact-title">서로 상생하는 병원마케팅 파트너, <span class="text-gold">올투윈마케팅</span></h1>
+                <div class="contact-desc">
+                    <p>올투윈마케팅은 단순히 가격을 비교하는 마케팅 대행사가 아닙니다.</p>
+                    <p>병원의 상황을 이해하고, 함께 고민하며 장기적으로 성장하는 파트너를 지향합니다.</p>
+                    <p class="mt-20">문의 내용을 구체적으로 남겨주실수록 우리 병원에 맞는 마케팅 구조를 더욱 정교하게 설계할 수 있습니다.<br>
+                        잠깐의 수고가 병원의 마케팅 방향과 미래를 바꾸는 시작이 될 수 있습니다.</p>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contact Form Section -->
-    <section class="contact-form-section">
-        <div class="container">
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="hospitalName">병원명 <span class="required">*</span></label>
-                    <input type="text" id="hospitalName" placeholder="개원 전이라면 O월 개원예정 으로 표기해주세요" required>
-                </div>
-
-                <div class="form-row">
+        <!-- Contact Form Section -->
+        <section class="contact-form-section">
+            <div class="container">
+                <form id="contact-form" class="contact-form">
                     <div class="form-group">
-                        <label for="name">성함 <span class="required">*</span></label>
-                        <input type="text" id="name" required>
+                        <label for="hospitalName">병원명 <span class="required">*</span></label>
+                        <input type="text" id="hospitalName" name="hospital_name"
+                            placeholder="개원 전이라면 O월 개원예정 으로 표기해주세요" required>
                     </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">성함 <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="position">직급 <span class="required">*</span></label>
+                            <input type="text" id="position" name="position" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="specialty">진료과목 <span class="required">*</span></label>
+                            <input type="text" id="specialty" name="department" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="location">병원위치(지역) <span class="required">*</span></label>
+                            <input type="text" id="location" name="location" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact">연락처 <span class="required">*</span></label>
+                            <input type="tel" id="contact" name="phone" placeholder="010-0000-0000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">이메일 <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                        </div>
+                    </div>
+
                     <div class="form-group">
-                        <label for="position">직급 <span class="required">*</span></label>
-                        <input type="text" id="position" required>
+                        <label>현재 운영 중인 마케팅 채널 Check <span class="sub-label">(복수선택 가능)</span></label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="marketing_channels" value="홈페이지"> 홈페이지</label>
+                            <label><input type="checkbox" name="marketing_channels" value="검색광고"> 검색광고</label>
+                            <label><input type="checkbox" name="marketing_channels" value="블로그"> 블로그</label>
+                            <label><input type="checkbox" name="marketing_channels" value="유튜브"> 유튜브</label>
+                            <label><input type="checkbox" name="marketing_channels" value="기타"> 기타</label>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-row">
                     <div class="form-group">
-                        <label for="specialty">진료과목 <span class="required">*</span></label>
-                        <input type="text" id="specialty" required>
+                        <label>문의하는 이유 Check <span class="sub-label">(복수선택 가능)</span></label>
+                        <div class="checkbox-vertical">
+                            <label><input type="checkbox" name="inquiry_reason" value="개원 앞두고 마케팅 회사 검토 중"> 개원 앞두고 마케팅
+                                회사를 알아보는 중입니다</label>
+                            <label><input type="checkbox" name="inquiry_reason" value="기존 마케팅사 퍼포먼스 불만"> 기존 마케팅회사의 퍼포먼스가
+                                마음에 들지 않습니다</label>
+                            <label><input type="checkbox" name="inquiry_reason" value="신규 환자 유입 필요"> 신규 환자유입이 필요해서
+                                신청합니다</label>
+                            <label><input type="checkbox" name="inquiry_reason" value="병원 인지도 부족"> 병원은 오래됐는데, 환자들이 병원의
+                                존재를 모릅니다</label>
+                            <label><input type="checkbox" name="inquiry_reason" value="민원으로 마케팅 중단 상태"> 민원으로 인해 마케팅을 멈춘
+                                상태여서 상담이 필요합니다</label>
+                        </div>
                     </div>
+
                     <div class="form-group">
-                        <label for="location">병원위치(지역) <span class="required">*</span></label>
-                        <input type="text" id="location" required>
+                        <label for="consultTime">상담가능한 요일 및 시간대</label>
+                        <input type="text" id="consultTime" name="available_time" placeholder="예: 평일 오전 10시 ~ 11시">
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="contact">연락처 <span class="required">*</span></label>
-                    <input type="tel" id="contact" placeholder="010-0000-0000" required>
-                </div>
-
-                <div class="form-group">
-                    <label>현재 운영 중인 마케팅 채널 Check <span class="sub-label">(복수선택 가능)</span></label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="channels" value="homepage"> 홈페이지</label>
-                        <label><input type="checkbox" name="channels" value="search_ads"> 검색광고</label>
-                        <label><input type="checkbox" name="channels" value="blog"> 블로그</label>
-                        <label><input type="checkbox" name="channels" value="youtube"> 유튜브</label>
-                        <label><input type="checkbox" name="channels" value="etc"> 기타</label>
+                    <div class="form-group">
+                        <label for="inquiryContent">문의내용</label>
+                        <textarea id="inquiryContent" name="message" rows="6"
+                            placeholder="자세히 작성해주시면 원활한 상담에 도움이 됩니다"></textarea>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label>문의하는 이유 Check <span class="sub-label">(복수선택 가능)</span></label>
-                    <div class="checkbox-vertical">
-                        <label><input type="checkbox" name="reasons" value="opening"> 개원 앞두고 마케팅 회사를 알아보는 중입니다</label>
-                        <label><input type="checkbox" name="reasons" value="performance"> 기존 마케팅회사의 퍼포먼스가 마음에 들지
-                            않습니다</label>
-                        <label><input type="checkbox" name="reasons" value="new_patients"> 신규 환자유입이 필요해서 신청합니다</label>
-                        <label><input type="checkbox" name="reasons" value="awareness"> 병원은 오래됐는데, 환자들이 병원의 존재를
-                            모릅니다</label>
-                        <label><input type="checkbox" name="reasons" value="complaints"> 민원으로 인해 마케팅을 멈춘 상태여서 상담이
-                            필요합니다</label>
+                    <div class="form-group privacy-policy-section">
+                        <label>개인정보 수집 및 이용 동의 <span class="required">*</span></label>
+                        <div class="privacy-box">
+                            <p><strong>올투윈마케팅(이하 “회사”)은 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고, 관련 고충을 신속하고 원활하게 처리하기 위하여
+                                    다음과 같이 개인정보 처리방침을 수립·공개합니다.</strong></p>
+                            <br>
+                            <p><strong>제1조 (개인정보의 처리 목적)</strong><br>
+                                회사는 다음의 목적을 위해 개인정보를 처리합니다. 처리한 개인정보는 아래 목적 이외의 용도로는 이용되지 않으며, 목적이 변경될 경우 관련 법령에 따라 사전
+                                동의를 받습니다.<br>
+                                1. 병원 마케팅 상담 및 문의 응대<br>
+                                2. 서비스 안내 및 상담 결과 회신<br>
+                                3. 병원 마케팅 제안 및 커뮤니케이션 기록 관리</p>
+                            <br>
+                            <p><strong>제2조 (처리하는 개인정보 항목)</strong><br>
+                                회사는 문의하기 페이지를 통해 아래의 개인정보를 수집합니다.<br>
+                                - 필수항목: 병원명, 담당자명, 연락처, 이메일<br>
+                                - 선택항목: 직함, 지역, 문의 내용, 상담 가능 시간 등</p>
+                            <br>
+                            <p><strong>제3조 (개인정보의 처리 및 보유 기간)</strong><br>
+                                회사는 개인정보 보유 목적이 달성된 후 지체 없이 해당 정보를 파기합니다.<br>
+                                - 상담 및 문의 처리 목적: 문의 처리 완료 후 최대 1년 보관<br>
+                                - 관계 법령에 따라 보존이 필요한 경우: 해당 법령에서 정한 기간 동안 보관</p>
+                            <br>
+                            <p><strong>제4조 (개인정보의 제3자 제공)</strong><br>
+                                회사는 원칙적으로 정보주체의 개인정보를 제3자에게 제공하지 않습니다. 다만, 법령에 따라 정보주체의 동의가 있거나 법적 의무가 있는 경우에 한하여 제공될 수
+                                있습니다.</p>
+                            <br>
+                            <p><strong>제5조 (개인정보 처리의 위탁)</strong><br>
+                                회사는 원활한 상담 응대를 위해 다음과 같이 개인정보 처리 업무의 일부를 위탁할 수 있습니다.<br>
+                                - 위탁받는 자: EmailJS<br>
+                                - 위탁 업무 내용: 문의 내용 이메일 발송<br>
+                                - 보유 및 이용 기간: 위탁 계약 종료 시까지<br>
+                                회사는 위탁 계약 시 개인정보 보호 관련 법령을 준수하며, 수탁자가 개인정보를 안전하게 처리하도록 관리·감독합니다.</p>
+                            <br>
+                            <p><strong>제6조 (정보주체의 권리와 행사 방법)</strong><br>
+                                정보주체는 언제든지 다음과 같은 권리를 행사할 수 있습니다.<br>
+                                1. 개인정보 열람 요구<br>
+                                2. 개인정보 정정 또는 삭제 요구<br>
+                                3. 개인정보 처리 정지 요구<br>
+                                권리 행사는 이메일 또는 전화 등을 통해 가능하며, 회사는 지체 없이 조치합니다.</p>
+                            <br>
+                            <p><strong>제7조 (개인정보의 파기 절차 및 방법)</strong><br>
+                                회사는 개인정보 보유 기간의 경과 또는 처리 목적 달성 시 지체 없이 파기합니다.<br>
+                                - 전자적 파일: 복구 불가능한 방법으로 삭제<br>
+                                - 종이 문서: 분쇄 또는 소각</p>
+                            <br>
+                            <p><strong>제8조 (개인정보의 안전성 확보 조치)</strong><br>
+                                회사는 개인정보 보호를 위해 다음과 같은 조치를 취하고 있습니다.<br>
+                                - 관리적 조치: 내부 관리 계획 수립<br>
+                                - 기술적 조치: 접근 권한 관리 및 보안 프로그램 적용<br>
+                                - 물리적 조치: 접근 통제</p>
+                            <br>
+                            <p><strong>제9조 (개인정보 보호책임자)</strong><br>
+                                회사는 개인정보 처리에 관한 업무를 총괄하여 책임지는 개인정보 보호책임자를 지정하고 있습니다.<br>
+                                - 개인정보 보호책임자: 올투윈마케팅 운영 담당자<br>
+                                - 문의 방법: 홈페이지 문의하기 또는 이메일 문의</p>
+                            <br>
+                            <p><strong>제10조 (개인정보 처리방침의 변경)</strong><br>
+                                본 개인정보 처리방침은 법령 또는 회사 정책 변경에 따라 수정될 수 있으며, 변경 시 홈페이지를 통해 공지합니다.<br>
+                                - 시행일자: 2026년 ○월 ○일</p>
+                        </div>
+                        <div class="checkbox-single mt-10">
+                            <label><input type="checkbox" name="privacy_agreement" required> 개인정보 수집 및 이용에
+                                동의합니다.</label>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="consultTime">상담가능한 요일 및 시간대</label>
-                    <input type="text" id="consultTime" placeholder="예: 평일 오전 10시 ~ 11시">
-                </div>
-
-                <div class="form-group">
-                    <label for="inquiryContent">문의내용</label>
-                    <textarea id="inquiryContent" rows="6" placeholder="자세히 작성해주시면 원활한 상담에 도움이 됩니다"></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-primary submit-btn">문의 접수하기</button>
-            </form>
-        </div>
-    </section>
+                    <button type="submit" class="btn btn-primary submit-btn">문의 접수하기</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -145,6 +225,75 @@
     </div>
 
     <script src="js/main.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // User ID (Public Key) provided by user
+            emailjs.init("69oJlRbpfQN-bjd_-");
+        })();
+    </script>
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            // Submit Button Feedback
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalBtnText = submitBtn.textContent;
+            submitBtn.textContent = '전송 중...';
+            submitBtn.disabled = true;
+
+            // 체크박스 값 합치기
+            const marketingChannels = Array.from(
+                document.querySelectorAll('input[name="marketing_channels"]:checked')
+            ).map(el => el.value).join(", ");
+
+            const inquiryReason = Array.from(
+                document.querySelectorAll('input[name="inquiry_reason"]:checked')
+            ).map(el => el.value).join(", ");
+
+            const templateParams = {
+                hospital_name: document.querySelector('[name="hospital_name"]').value,
+                name: document.querySelector('[name="name"]').value,
+                position: document.querySelector('[name="position"]').value,
+                department: document.querySelector('[name="department"]').value,
+                location: document.querySelector('[name="location"]').value,
+                phone: document.querySelector('[name="phone"]').value,
+                email: document.querySelector('[name="email"]').value,
+                marketing_channels: marketingChannels,
+                inquiry_reason: inquiryReason,
+                available_time: document.querySelector('[name="available_time"]').value,
+                message: document.querySelector('[name="message"]').value,
+                submitted_at: new Date().toLocaleString("ko-KR")
+            };
+
+            console.log("Sending Params:", templateParams);
+
+            emailjs.send(
+                "service_xkvlh68",
+                "template_pblxcrh",
+                templateParams
+            ).then(
+                function (response) {
+                    console.log('SUCCESS!', response.status, response.text);
+
+                    // Save to LocalStorage for Admin Dashboard
+                    const currentInquiries = JSON.parse(localStorage.getItem('alltowin_inquiries') || '[]');
+                    currentInquiries.unshift(templateParams); // Add new inquiry to the top
+                    localStorage.setItem('alltowin_inquiries', JSON.stringify(currentInquiries));
+
+                    alert("문의가 정상적으로 접수되었습니다.\n담당자가 빠르게 연락드리겠습니다.");
+                    document.getElementById("contact-form").reset();
+                },
+                function (error) {
+                    console.error("EmailJS Error:", error);
+                    alert("전송 중 오류가 발생했습니다.\n" + JSON.stringify(error));
+                }
+            ).finally(() => {
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
 </body>
 
 </html>
