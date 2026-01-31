@@ -755,6 +755,7 @@ footer {
         line-height: 1.6;
         padding: 0 10px;
         /* Prevent edge touching */
+        text-align: left;
     }
 }
 
