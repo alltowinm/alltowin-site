@@ -19,7 +19,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: ./www/  # Changed to relative path for Cafe24 compatibility
+          server-dir: ./  # Changed to root (assuming already inside www or root writable)
           exclude: |
             **/.git*
             **/.git*/**
