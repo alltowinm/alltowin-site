@@ -19,7 +19,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /www/  # Usually /www/ or /public_html/ for Cafe24
+          server-dir: ./www/  # Changed to relative path for Cafe24 compatibility
           exclude: |
             **/.git*
             **/.git*/**
